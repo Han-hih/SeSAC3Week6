@@ -18,6 +18,13 @@ class Example2ViewController: UIViewController {
         return view
     }()
     
+    let bottomView = {
+       let view = UIView()
+        view.backgroundColor = .lightGray
+        
+        return view
+    }()
+    
     let closeButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "multiply"), for: .normal)
@@ -46,13 +53,37 @@ class Example2ViewController: UIViewController {
         return button
     }()
     
+    let profileImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .black
+        view.layer.cornerRadius = 10
+        
+        return view
+    }()
+    
+    let nameLabel = {
+        let label = UILabel()
+        label.text = "Inho"
+        label.textAlignment = .center
+        label.font = .boldSystemFont(ofSize: 20)
+        
+        return label
+    }()
+    
+    let lineView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray
+        
+        return view
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .cyan
         
-        [topView, closeButton, settingButton, sendButton, giftButton ].forEach {
+        [topView, closeButton, settingButton, sendButton, giftButton, bottomView, profileImageView, nameLabel, lineView ].forEach {
             view.addSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         setAutoLayout()
@@ -60,9 +91,15 @@ class Example2ViewController: UIViewController {
     }
     
     func setAutoLayout() {
+
         topView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(50)
+        }
+        
+        bottomView.snp.makeConstraints { make in
+            make.bottom.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(view).multipliedBy(0.3)
         }
         
         closeButton.snp.makeConstraints { make in
@@ -86,6 +123,25 @@ class Example2ViewController: UIViewController {
             make.width.equalTo(closeButton)
             make.trailing.equalTo(sendButton.snp_leadingMargin).offset(-20)
         }
+        
+        profileImageView.snp.makeConstraints { make in
+            make.centerX.equalTo(bottomView)
+            make.top.equalTo(bottomView)
+//            make.centerY.equalTo(bottomView).offset(-50)
+            make.size.equalTo(bottomView.snp.width).multipliedBy(0.25)
+        }
+        
+        nameLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(bottomView)
+            make.top.equalTo(profileImageView.snp_bottomMargin).offset(20)
+        }
+        
+        lineView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.horizontalEdges.equalTo(bottomView)
+            make.top.equalTo(nameLabel.snp_bottomMargin).offset(20)
+        }
+        
         
     }
    
