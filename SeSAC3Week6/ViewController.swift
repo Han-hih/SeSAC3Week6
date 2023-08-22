@@ -67,8 +67,7 @@ class ViewController: UIViewController {
     
     @objc func signButtonTapped() {
         
-        
-        present(Example1ViewController(), animated: true)
+//        present(Example2ViewController(), animated: true)
     }
     
     func setLayoutAnchor() {
