@@ -9,6 +9,8 @@ import UIKit
 //제일 상단뷰: x버튼, 선물하기버튼, 네모버튼?, 설정버튼
 
 //하단뷰: 프로필사진, 이름레이블, 상태 메시지, 선, (나와의 채팅, 프로필 편집, 카카오스토리)
+// MARK: - ui생성
+
 class Example2ViewController: UIViewController {
 
     let topView = {
@@ -76,12 +78,51 @@ class Example2ViewController: UIViewController {
         
         return view
     }()
+    
+    let messageButton = {
+       let button = UIButton()
+        button.titleLabel?.font = .systemFont(ofSize: 13)
+        button.setTitle("나와의 채팅", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.setImage(UIImage(systemName: "message.fill"), for: .normal)
+        button.tintColor = .white
+        button.alignTextBelow(spacing: 10.0)
+        
+        return button
+    }()
+    
+    let setProfileButton = {
+        let button = UIButton()
+         button.titleLabel?.font = .systemFont(ofSize: 13)
+         button.setTitle("프로필 편집", for: .normal)
+         button.setTitleColor(UIColor.white, for: .normal)
+         button.setImage(UIImage(systemName: "pencil"), for: .normal)
+         button.tintColor = .white
+         button.alignTextBelow(spacing: 10.0)
+         
+         return button
+     }()
+    
+    let kakaoStoryButton = {
+        let button = UIButton()
+         button.titleLabel?.font = .systemFont(ofSize: 13)
+         button.setTitle("카카오 스토리", for: .normal)
+         button.setTitleColor(UIColor.white, for: .normal)
+         button.setImage(UIImage(systemName: "quote.closing"), for: .normal)
+         button.tintColor = .white
+         button.alignTextBelow(spacing: 10.0)
+         
+         return button
+     }()
+    
+    // MARK: - viewDidLoad
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .cyan
         
-        [topView, closeButton, settingButton, sendButton, giftButton, bottomView, profileImageView, nameLabel, lineView ].forEach {
+        [topView, closeButton, settingButton, sendButton, giftButton, bottomView, profileImageView, nameLabel, lineView, messageButton, setProfileButton, kakaoStoryButton ].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -89,7 +130,8 @@ class Example2ViewController: UIViewController {
         setAutoLayout()
         
     }
-    
+    // MARK: - 오토레이아웃 세팅
+
     func setAutoLayout() {
 
         topView.snp.makeConstraints { make in
@@ -142,8 +184,50 @@ class Example2ViewController: UIViewController {
             make.top.equalTo(nameLabel.snp_bottomMargin).offset(20)
         }
         
+        messageButton.snp.makeConstraints { make in
+            make.top.equalTo(lineView).offset(30)
+            make.trailing.equalTo(setProfileButton).offset(-100)
+            make.width.equalTo(bottomView.snp.width).multipliedBy(0.3)
+            make.height.equalTo(bottomView.snp.height).multipliedBy(0.1)
+        }
+        
+        setProfileButton.snp.makeConstraints { make in
+            make.centerX.equalTo(bottomView)
+            make.top.equalTo(messageButton)
+            make.width.equalTo(bottomView.snp.width).multipliedBy(0.3)
+            make.height.equalTo(bottomView.snp.height).multipliedBy(0.1)
+        }
+        
+        kakaoStoryButton.snp.makeConstraints { make in
+            make.leading.equalTo(setProfileButton).offset(100)
+            make.top.equalTo(messageButton)
+            make.width.equalTo(bottomView.snp.width).multipliedBy(0.3)
+            make.height.equalTo(bottomView.snp.height).multipliedBy(0.1)
+        }
         
     }
    
 
 }
+extension UIButton {
+    func alignTextBelow(spacing: CGFloat = 4.0) {
+               guard let image = self.imageView?.image else {
+                   return
+               }
+
+               guard let titleLabel = self.titleLabel else {
+                   return
+               }
+
+               guard let titleText = titleLabel.text else {
+                   return
+               }
+
+               let titleSize = titleText.size(withAttributes: [
+                   NSAttributedString.Key.font: titleLabel.font as Any
+               ])
+
+               titleEdgeInsets = UIEdgeInsets(top: spacing, left: -image.size.width, bottom: -image.size.height, right: 0)
+               imageEdgeInsets = UIEdgeInsets(top: -(titleSize.height + spacing), left: 0, bottom: 0, right: -titleSize.width)
+           }
+   }

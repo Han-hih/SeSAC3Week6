@@ -66,8 +66,10 @@ class ViewController: UIViewController {
     }
     
     @objc func signButtonTapped() {
+        let vc = LocationViewController()
+        let nav = UINavigationController(rootViewController: vc)
         
-//        present(Example2ViewController(), animated: true)
+        present(nav, animated: true)
     }
     
     func setLayoutAnchor() {
