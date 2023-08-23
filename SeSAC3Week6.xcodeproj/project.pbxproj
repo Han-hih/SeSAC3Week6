@@ -12,6 +12,7 @@
 		80C15BA02A94CB8A009F4497 /* Example2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C15B9F2A94CB8A009F4497 /* Example2ViewController.swift */; };
 		80C15BA22A94CB9A009F4497 /* Example3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C15BA12A94CB9A009F4497 /* Example3ViewController.swift */; };
 		80C15BA42A94DDDE009F4497 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C15BA32A94DDDE009F4497 /* ExampleViewController.swift */; };
+		80C15BA62A95EFA9009F4497 /* AroundMovieTheaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C15BA52A95EFA9009F4497 /* AroundMovieTheaterViewController.swift */; };
 		80C62F4C2A930A0000BC6FAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C62F4B2A930A0000BC6FAC /* AppDelegate.swift */; };
 		80C62F4E2A930A0000BC6FAC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C62F4D2A930A0000BC6FAC /* SceneDelegate.swift */; };
 		80C62F502A930A0000BC6FAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C62F4F2A930A0000BC6FAC /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		80C15B9F2A94CB8A009F4497 /* Example2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2ViewController.swift; sourceTree = "<group>"; };
 		80C15BA12A94CB9A009F4497 /* Example3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example3ViewController.swift; sourceTree = "<group>"; };
 		80C15BA32A94DDDE009F4497 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		80C15BA52A95EFA9009F4497 /* AroundMovieTheaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AroundMovieTheaterViewController.swift; sourceTree = "<group>"; };
 		80C62F482A930A0000BC6FAC /* SeSAC3Week6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3Week6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80C62F4B2A930A0000BC6FAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80C62F4D2A930A0000BC6FAC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				80C62F632A94467C00BC6FAC /* SnapViewController.swift */,
 				80C62F652A945CC700BC6FAC /* TextViewController.swift */,
 				80C15B9A2A947938009F4497 /* LocationViewController.swift */,
+				80C15BA52A95EFA9009F4497 /* AroundMovieTheaterViewController.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				80C62F662A945CC700BC6FAC /* TextViewController.swift in Sources */,
 				80C15BA22A94CB9A009F4497 /* Example3ViewController.swift in Sources */,
 				80C62F642A94467C00BC6FAC /* SnapViewController.swift in Sources */,
+				80C15BA62A95EFA9009F4497 /* AroundMovieTheaterViewController.swift in Sources */,
 				80C62F502A930A0000BC6FAC /* ViewController.swift in Sources */,
 				80C15B9B2A947938009F4497 /* LocationViewController.swift in Sources */,
 				80C15BA02A94CB8A009F4497 /* Example2ViewController.swift in Sources */,

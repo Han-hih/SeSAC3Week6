@@ -26,12 +26,14 @@ class ViewController: UIViewController {
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
     let signButton = UIButton()
+    let movieButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
+        view.addSubview(movieButton)
         
         emailTextField.frame = CGRect(x: 50, y: 80, width: UIScreen.main.bounds.width - 100, height: 50)
         
@@ -67,10 +69,20 @@ class ViewController: UIViewController {
     
     @objc func signButtonTapped() {
         let vc = LocationViewController()
-        let nav = UINavigationController(rootViewController: vc)
+//        let nav = UINavigationController(rootViewController: vc)
         
-        present(nav, animated: true)
+        present(vc, animated: true)
     }
+    
+    @objc func movieButtonTapped() {
+        print(#function)
+        let vc =  AroundMovieTheaterViewController()
+//        let nav = UINavigationController(rootViewController: vc)
+        
+        self.navigationController?.pushViewController(vc, animated: false)
+        
+    }
+
     
     func setLayoutAnchor() {
         view.addSubview(signButton)
@@ -83,9 +95,20 @@ class ViewController: UIViewController {
             signButton.widthAnchor.constraint(equalToConstant: 300),
             signButton.heightAnchor.constraint(equalToConstant: 50),
             signButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-            
-            
         ])
+        movieButton.translatesAutoresizingMaskIntoConstraints = false
+        movieButton.backgroundColor = .blue
+        movieButton.setTitle("주변 영화관 탐색하기", for: .normal)
+        movieButton.setTitleColor(.white, for: .normal)
+        movieButton.addTarget(self, action: #selector(movieButtonTapped), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            movieButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            movieButton.widthAnchor.constraint(equalTo: signButton.widthAnchor),
+            movieButton.heightAnchor.constraint(equalTo: signButton.heightAnchor),
+            movieButton.bottomAnchor.constraint(equalTo: signButton.topAnchor, constant: -30)
+        ])
+        
     }
 
 }
