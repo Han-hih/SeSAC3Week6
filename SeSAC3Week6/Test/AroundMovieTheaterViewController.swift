@@ -20,8 +20,7 @@ class AroundMovieTheaterViewController: UIViewController {
     
     lazy var filetrButton = UIBarButtonItem()
    
-    
-    
+    let theaterList = TheaterList().mapAnnotations
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,20 +38,34 @@ class AroundMovieTheaterViewController: UIViewController {
         
         
         checkDeviceLocationAuthorization()
-
+        addAnnotation()
+    }
+    
+    // 위치 추가
+    func addAnnotation() {
+        
+        for item in theaterList {
+            
+            let annotation = MKPointAnnotation()
+            annotation.title = item.type
+            annotation.coordinate = CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude)
+            mapView.addAnnotation(annotation)
+        }
+        
+        
+    
     }
     
     
-    
-    
     // 클릭시 액션시트 띄우기
+    // 액션 추가
     @objc func filterButtonTapped() {
         print(#function)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
         let lotteCinema = UIAlertAction(title: "롯데시네마", style: .default)
         let cgv = UIAlertAction(title: "CGV", style: .default)
-        let megabox = UIAlertAction(title: "MegaBox", style: .default)
+        let megabox = UIAlertAction(title: "메가박스", style: .default)
         let all = UIAlertAction(title: "전체보기", style: .default)
         let cancel = UIAlertAction(title: "취소", style: .cancel)
 
@@ -109,7 +122,7 @@ class AroundMovieTheaterViewController: UIViewController {
         // 지도 중심 기반으로 보여질 범위 설정
         let center = CLLocationCoordinate2D(latitude: LocationList().sesacLat, longitude: LocationList().sesacLong)
         
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 100, longitudinalMeters: 100)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 400, longitudinalMeters: 400)
         
         mapView.setRegion(region, animated: true)
         
