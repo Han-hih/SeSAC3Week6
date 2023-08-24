@@ -18,7 +18,7 @@ class AroundMovieTheaterViewController: UIViewController {
     let mapView = MKMapView()
     
     
-    let filetrButton = UIButton()
+    lazy var filetrButton = UIBarButtonItem()
    
     
     
@@ -33,6 +33,7 @@ class AroundMovieTheaterViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "filter", style: .plain, target: self, action: #selector(filterButtonTapped))
 //        filetrButton.tintColor = .black
 //        filetrButton.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         
@@ -46,8 +47,20 @@ class AroundMovieTheaterViewController: UIViewController {
     
     // 클릭시 액션시트 띄우기
     @objc func filterButtonTapped() {
+        print(#function)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    
+        let lotteCinema = UIAlertAction(title: "롯데시네마", style: .default)
+        let cgv = UIAlertAction(title: "CGV", style: .default)
+        let megabox = UIAlertAction(title: "MegaBox", style: .default)
+        let all = UIAlertAction(title: "전체보기", style: .default)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+
+        [lotteCinema, cgv, megabox, all, cancel].forEach { alert.addAction($0) }
         
+        self.present(alert, animated: true)
     }
+    
     
     
     
