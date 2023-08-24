@@ -38,24 +38,30 @@ class AroundMovieTheaterViewController: UIViewController {
         
         
         checkDeviceLocationAuthorization()
-        addAnnotation()
+        allAnnotaiton()
     }
     
     // 위치 추가
-    func addAnnotation() {
-        
+    func addAnnotation(theater: String) {
+        self.mapView.removeAnnotations(self.mapView.annotations)
         for item in theaterList {
-            
+            let annotation = MKPointAnnotation()
+            if item.type == theater {
+                annotation.title = item.type
+                annotation.coordinate = CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude)
+                mapView.addAnnotation(annotation)
+            }
+        }
+    
+    }
+    func allAnnotaiton() {
+        for item in theaterList {
             let annotation = MKPointAnnotation()
             annotation.title = item.type
             annotation.coordinate = CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude)
             mapView.addAnnotation(annotation)
         }
-        
-        
-    
     }
-    
     
     // 클릭시 액션시트 띄우기
     // 액션 추가
@@ -63,10 +69,18 @@ class AroundMovieTheaterViewController: UIViewController {
         print(#function)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
     
-        let lotteCinema = UIAlertAction(title: "롯데시네마", style: .default)
-        let cgv = UIAlertAction(title: "CGV", style: .default)
-        let megabox = UIAlertAction(title: "메가박스", style: .default)
-        let all = UIAlertAction(title: "전체보기", style: .default)
+        let lotteCinema = UIAlertAction(title: "롯데시네마", style: .default) { _ in
+            self.addAnnotation(theater: "롯데시네마")
+        }
+        let cgv = UIAlertAction(title: "CGV", style: .default) { _ in
+            self.addAnnotation(theater: "CGV")
+        }
+        let megabox = UIAlertAction(title: "메가박스", style: .default) { _ in
+            self.addAnnotation(theater: "메가박스")
+        }
+        let all = UIAlertAction(title: "전체보기", style: .default) { _ in
+            self.allAnnotaiton()
+        }
         let cancel = UIAlertAction(title: "취소", style: .cancel)
 
         [lotteCinema, cgv, megabox, all, cancel].forEach { alert.addAction($0) }

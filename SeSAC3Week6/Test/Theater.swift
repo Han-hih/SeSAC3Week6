@@ -36,3 +36,5 @@ struct LocationList {
     var sesacLat = 37.517829
     var sesacLong = 126.886270
 }
+
+
