@@ -24,3 +24,15 @@ struct TheaterList {
         Theater(type: "CGV", location: "CGV 용산 아이파크몰", latitude: 37.53149302830903, longitude: 126.9654030486416)
     ]
 }
+
+struct Location {
+    let latitude: Double
+    let longitude: Double
+}
+
+//latitude: 37.517829, longitude: 126.886270
+
+struct LocationList {
+    var sesacLat = 37.517829
+    var sesacLong = 126.886270
+}

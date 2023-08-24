@@ -33,7 +33,7 @@ class AroundMovieTheaterViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "filter", style: .plain, target: self, action: #selector(filterButtonTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonTapped))
 //        filetrButton.tintColor = .black
 //        filetrButton.addTarget(self, action: #selector(filterButtonTapped), for: .touchUpInside)
         
@@ -107,7 +107,7 @@ class AroundMovieTheaterViewController: UIViewController {
     
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
         // 지도 중심 기반으로 보여질 범위 설정
-        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+        let center = CLLocationCoordinate2D(latitude: LocationList().sesacLat, longitude: LocationList().sesacLong)
         
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 100, longitudinalMeters: 100)
         
@@ -141,7 +141,7 @@ class AroundMovieTheaterViewController: UIViewController {
         case .denied:
             print("denied")
             showRequestLocationServiceAlert() // 적당한 위치가 어디인지 고민해보기
-            let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+            let center = CLLocationCoordinate2D(latitude: LocationList().sesacLat, longitude: LocationList().sesacLong)
             setRegionAndAnnotation(center: center)
         case .authorizedAlways:
             print("authorizedAlways")
