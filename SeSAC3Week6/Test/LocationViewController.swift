@@ -92,7 +92,7 @@ class LocationViewController: UIViewController {
     
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
         // 지도 중심 기반으로 보여질 범위 설정
-        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+//        let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
         
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 100, longitudinalMeters: 100)
         
@@ -190,10 +190,11 @@ extension LocationViewController: CLLocationManagerDelegate {
     //didUpdateLocation은 한번만 실행되지 않는다, iOS 위치 업데이트가 필요한 시점에 알아서 여러번 호출
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        
         if let coordinate = locations.last?.coordinate {
             print(coordinate)
+            setRegionAndAnnotation(center: coordinate)
         }
+        
         locationManager.stopUpdatingLocation()
     }
     
