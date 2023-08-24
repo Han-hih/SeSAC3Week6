@@ -10,6 +10,13 @@ import SnapKit
 
 class TextViewController: UIViewController {
 
+    
+    //1. 사진관련 작업들을 할 수 있다.
+    let picker = UIImagePickerController()
+    
+    
+    
+    
     // 이름이 없는 함수를 반환해서 클로저로 적용시켜준다.
     let photoImageVIew = {
         let view = UIImageView()
@@ -45,6 +52,26 @@ class TextViewController: UIViewController {
     setLayout()
     }
     
+    //2. 읽는 권한은 설정이 필요없고 사용할 경우 권한이 필요하다.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        // available 사용할수 있는지
+//
+//
+//        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+//            print("갤러리 사용 불가, 사용자에게 토스트/ 얼럿")
+//            return
+//        }
+//        // 설정했는지 확인
+//        picker.delegate = self
+//        //어떤 뷰를 띄워줄지
+//        picker.sourceType = .camera
+//        // 편집상태에 대한 허가
+//        picker.allowsEditing = true
+        let picker = UIFontPickerViewController()
+        
+        present(picker, animated: true)
+    }
     
     func setLayout() {
         titleTextField.snp.makeConstraints { make in
@@ -65,4 +92,23 @@ class TextViewController: UIViewController {
     
     
     
+    
+}
+ //3.
+extension TextViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    // 사진을 선택하거나 카메라 촬영 직후
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // .original이미지로 하면 수정을 해도 원본으로 올라간다.
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.photoImageVIew.image = image
+            dismiss(animated: true)
+        }
+    }
+    
+    // 취소 버튼 클릭 시
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print(#function)
+        dismiss(animated: true)
+    }
 }
