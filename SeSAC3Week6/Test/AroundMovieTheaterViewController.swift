@@ -101,11 +101,11 @@ class AroundMovieTheaterViewController: UIViewController {
         mapView.setRegion(region, animated: true)
         
         //지도에 어노테이션 추가
-        let annotation = MKPointAnnotation()
-        annotation.title = "영캠이에요"
-        annotation.coordinate = center
-        
-        mapView.addAnnotation(annotation)
+//        let annotation = MKPointAnnotation()
+//        annotation.title = "영캠이에요"
+//        annotation.coordinate = center
+//
+//        mapView.addAnnotation(annotation)
         
         
     }
@@ -128,6 +128,8 @@ class AroundMovieTheaterViewController: UIViewController {
         case .denied:
             print("denied")
             showRequestLocationServiceAlert() // 적당한 위치가 어디인지 고민해보기
+            let center = CLLocationCoordinate2D(latitude: 37.517829, longitude: 126.886270)
+            setRegionAndAnnotation(center: center)
         case .authorizedAlways:
             print("authorizedAlways")
         case .authorizedWhenInUse:
@@ -155,7 +157,7 @@ extension AroundMovieTheaterViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
     }
-    
+    //권한이 바꼈을 때
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print(#function)
         checkDeviceLocationAuthorization()

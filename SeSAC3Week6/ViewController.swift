@@ -68,18 +68,14 @@ class ViewController: UIViewController {
     }
     
     @objc func signButtonTapped() {
-        let vc = LocationViewController()
-//        let nav = UINavigationController(rootViewController: vc)
-        
-        present(vc, animated: true)
+        //클래스의 인스턴스를 넘겨주는 것이 아니라 클래스 자체를 넘겨준다.
+        transition(viewController: GenericViewController.self, storyboard:  "Main", style: .presentNavigaition)
     }
     
     @objc func movieButtonTapped() {
         print(#function)
         let vc =  AroundMovieTheaterViewController()
-//        let nav = UINavigationController(rootViewController: vc)
-        
-        self.navigationController?.pushViewController(vc, animated: false)
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 
