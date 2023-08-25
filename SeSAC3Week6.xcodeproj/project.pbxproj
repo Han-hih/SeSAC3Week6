@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80BECF632A982AFF00C43978 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BECF622A982AFF00C43978 /* CustomTableViewCell.swift */; };
+		80BECF652A9840A800C43978 /* PosterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BECF642A9840A800C43978 /* PosterImageView.swift */; };
+		80BECF682A984B5200C43978 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BECF672A984B5200C43978 /* OnboardingViewController.swift */; };
 		80C15B9B2A947938009F4497 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C15B9A2A947938009F4497 /* LocationViewController.swift */; };
 		80C15B9E2A94CB2E009F4497 /* Example1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C15B9D2A94CB2E009F4497 /* Example1ViewController.swift */; };
 		80C15BA02A94CB8A009F4497 /* Example2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C15B9F2A94CB8A009F4497 /* Example2ViewController.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		80BECF622A982AFF00C43978 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		80BECF642A9840A800C43978 /* PosterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterImageView.swift; sourceTree = "<group>"; };
+		80BECF672A984B5200C43978 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		80C15B9A2A947938009F4497 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		80C15B9D2A94CB2E009F4497 /* Example1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example1ViewController.swift; sourceTree = "<group>"; };
 		80C15B9F2A94CB8A009F4497 /* Example2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example2ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80BECF662A984B1700C43978 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				80BECF672A984B5200C43978 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		80C15B9C2A94CB13009F4497 /* Examle */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +105,8 @@
 				80C15BB12A971CE2009F4497 /* CustomViewController.swift */,
 				80C15BB32A971E99009F4497 /* BlackRadiusTextField.swift */,
 				80C15BB52A972A1E009F4497 /* CustomTableViewController.swift */,
+				80BECF622A982AFF00C43978 /* CustomTableViewCell.swift */,
+				80BECF642A9840A800C43978 /* PosterImageView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -114,6 +130,7 @@
 		80C62F4A2A930A0000BC6FAC /* SeSAC3Week6 */ = {
 			isa = PBXGroup;
 			children = (
+				80BECF662A984B1700C43978 /* Onboarding */,
 				80C15BB02A971CAE009F4497 /* CustomView */,
 				80C15BAB2A96F0EB009F4497 /* Generic */,
 				80C15B9C2A94CB13009F4497 /* Examle */,
@@ -216,11 +233,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80BECF632A982AFF00C43978 /* CustomTableViewCell.swift in Sources */,
 				80C62F662A945CC700BC6FAC /* TextViewController.swift in Sources */,
+				80BECF652A9840A800C43978 /* PosterImageView.swift in Sources */,
 				80C15BA22A94CB9A009F4497 /* Example3ViewController.swift in Sources */,
 				80C62F642A94467C00BC6FAC /* SnapViewController.swift in Sources */,
 				80C15BB42A971E99009F4497 /* BlackRadiusTextField.swift in Sources */,
 				80C15BA62A95EFA9009F4497 /* AroundMovieTheaterViewController.swift in Sources */,
+				80BECF682A984B5200C43978 /* OnboardingViewController.swift in Sources */,
 				80C62F502A930A0000BC6FAC /* ViewController.swift in Sources */,
 				80C15BAD2A96F124009F4497 /* GenericViewController.swift in Sources */,
 				80C15B9B2A947938009F4497 /* LocationViewController.swift in Sources */,
